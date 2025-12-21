@@ -1,0 +1,11 @@
+num_epochs : 12
+device : cpu
+num_devices : 1
+learning_rate: 0.001
+weight_decay: 0.00001
+optimizer: adam
+embedding_dim : 256
+hidden_dim : 256
+output_dim : 2
+n_layers : 1
+dropout : 0.1

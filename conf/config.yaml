@@ -1,0 +1,7 @@
+defaults:
+  - module: module
+  - logging: logging
+  - training: training
+  - infer: infer
+  - random : random
+  - model : model

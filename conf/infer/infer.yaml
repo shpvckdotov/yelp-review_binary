@@ -1,0 +1,7 @@
+train_path : ${module.train_path}
+test_path : ${module.test_path}
+batch_size : ${module.batch_size}
+max_length: ${module.max_length}
+num_workers : ${module.num_workers}
+val_split: ${module.val_split}
+tokenizer_name: ${module.tokenizer_name}

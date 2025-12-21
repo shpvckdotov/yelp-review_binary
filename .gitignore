@@ -8,6 +8,8 @@ remote
 # C extensions
 *.so
 
+outputs
+mlflow.db
 # Distribution / packaging
 .Python
 build/

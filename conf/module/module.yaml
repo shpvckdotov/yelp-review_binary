@@ -1,0 +1,7 @@
+train_path : data/yelp_train.csv
+test_path : data/yelp_test.csv
+batch_size : 32
+max_length: 384
+num_workers : 2
+val_split: 0.1
+tokenizer_name: 'bert-base-uncased'
