@@ -312,7 +312,7 @@ poetry run python yelp-review/train.py
 ```
 poetry run python yelp-review/infer,py
 ```
-
+## Production preparation
 Обученную модель можно перевести из .ckpt в формат .onnx. Не забудьте поменять
 название файла запускаемся из корня (чекпоинт берется из конфига infer):
 
