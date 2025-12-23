@@ -1,10 +1,11 @@
 import hydra
 import pytorch_lightning as pl
-from omegaconf import DictConfig
 from lstm_classifier import LSTMClassifier
 from model import LSTMClassifierLightning
-from data import YelpPolarityDataModule
+from omegaconf import DictConfig
 from transformers import BertTokenizer
+
+from data import YelpPolarityDataModule
 
 
 @hydra.main(version_base=None, config_path="../conf", config_name="config")
@@ -16,12 +17,12 @@ def main(config: DictConfig):
         test_path=config.module.test_path,
         batch_size=config.module.batch_size,
         num_workers=config.module.num_workers,
-        seed = config.random.seed,
+        seed=config.random.seed,
         tokenizer=tokenizer,
         max_length=config.module.max_length,
         val_split=config.module.val_split,
     )
-    
+
     model_torch = LSTMClassifier(
         vocab_size=tokenizer.vocab_size,
         embedding_dim=config.training.embedding_dim,
@@ -38,15 +39,14 @@ def main(config: DictConfig):
         learning_rate=config.training.learning_rate,
         weight_decay=config.training.weight_decay,
         optimizer=config.training.optimizer,
-
     )
 
     loggers = [
         pl.loggers.MLFlowLogger(
-             experiment_name=config.logging.experiment_name,
-             run_name=config.logging.run_name,
-             save_dir=".",
-             tracking_uri=config.logging.tracking_uri,
+            experiment_name=config.logging.experiment_name,
+            run_name=config.logging.run_name,
+            save_dir=".",
+            tracking_uri=config.logging.tracking_uri,
         )
     ]
 
@@ -68,14 +68,13 @@ def main(config: DictConfig):
 
     trainer = pl.Trainer(
         max_epochs=config["training"]["num_epochs"],
-        log_every_n_steps=1, 
+        log_every_n_steps=1,
         accelerator=config["training"]["device"],
         devices=config["training"]["num_devices"],
         logger=loggers,
         callbacks=callbacks,
     )
     trainer.fit(model, datamodule=data_module)
-
 
 
 if __name__ == "__main__":

@@ -3,5 +3,5 @@ defaults:
   - logging: logging
   - training: training
   - infer: infer
-  - random : random
-  - model : model
+  - random: random
+  - model: model
