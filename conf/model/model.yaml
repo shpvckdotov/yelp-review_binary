@@ -1,0 +1,3 @@
+model_local_path: /models
+save_top_k: 5
+every_n_epochs: 1

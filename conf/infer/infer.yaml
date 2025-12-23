@@ -1,0 +1,9 @@
+train_path: ${module.train_path}
+test_path: ${module.test_path}
+batch_size: ${module.batch_size}
+max_length: ${module.max_length}
+num_workers: ${module.num_workers}
+val_split: ${module.val_split}
+tokenizer_name: ${module.tokenizer_name}
+ckpt_path: models/epoch=00-val_loss=0.1730.ckpt
+infer_model: not_mvp
